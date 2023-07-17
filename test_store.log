@@ -1,0 +1,17 @@
+Sat Oct 22 12:18:58 2022 [NOTICE]: Core-7911-1: Onload extensions API has been dynamically loaded
+Sat Oct 22 12:18:58 2022 [INFO]: Store-5688-5273: Latency Busters Persistent Store version 6.15
+Sat Oct 22 12:18:58 2022 [INFO]: Store-5688-5274: UMP 6.15 [UMP-6.15] [64-bit] Build: Oct 22 2022, 01:54:29 ( DEBUG license LBT-RM LBT-RU LBT-IPC LBT-SMX ) WC[PCRE 7.4 2007-09-21, regex, appcb] HRT[gettimeofday()]
+Sat Oct 22 12:18:58 2022 [INFO]: Store-10761-01: (C) Copyright 2004,2022 Informatica LLC
+    This software and documentation are provided only under a separate license agreement containing restrictions on use and disclosure.
+    This software is protected by patents as detailed at https://www.informatica.com/legal/patents.html.
+    A current list of Informatica trademarks is available on the web at https://www.informatica.com/trademarks.html.
+Sat Oct 22 12:18:58 2022 [INFO]: Store-5688-5268: Linux mamba 3.10.0-1160.36.2.el7.x86_64 #1 SMP Wed Jul 21 11:57:15 UTC 2021 x86_64
+Sat Oct 22 12:18:58 2022 [NOTICE]: Store-9689-2: LBM XML configuration file [um.xml] specified, but no application-name provided. Setting application name to "umestored"
+Sat Oct 22 12:18:58 2022 [WARNING]: Core-9941-2212: specified smart source retention buffer count of 101000 will be increased to the next highest power of two: 131072
+Sat Oct 22 12:18:58 2022 [WARNING]: Store-5688-5445: WARNING: store "store_topic1" cache directory appears to be on an NFS mount. This is not recommended.
+Sat Oct 22 12:18:58 2022 [WARNING]: Store-5688-5447: WARNING: store "store_topic1" state directory appears to be on an NFS mount. This is not recommended.
+Sat Oct 22 12:18:58 2022 [INFO]: Store-10366-1: Created daemon monitor thread: id[139812939745024]
+Sat Oct 22 12:18:58 2022 [INFO]: Core-10403-151: Reactor Only Context (0x19cbcd0) created with ContextID (2996546139) and ContextName [(NULL)]
+Sat Oct 22 12:18:58 2022 [INFO]: Store-8079-10: Starting store "store_topic1"
+Sat Oct 22 12:18:58 2022 [INFO]: Core-10403-150: Context (0x31b9af0) created with ContextID (54519210) and ContextName [29west_statistics_context]
+Sat Oct 22 12:18:58 2022 [WARNING]: Core-9941-2212: specified smart source retention buffer count of 101000 will be increased to the next highest power of two: 131072

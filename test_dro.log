@@ -1,0 +1,25 @@
+[2022-10-22 12:18:56.699685] [notice] Core-7911-1: Onload extensions API has been dynamically loaded
+
+[2022-10-22 12:18:56.699721] [information] Gwd-7136-1: Ultra Messaging Gateway version 6.15
+[2022-10-22 12:18:56.699738] [information] Gwd-7136-2: UMP 6.15 [UMP-6.15] [64-bit] Build: Oct 22 2022, 01:54:29 ( DEBUG license LBT-RM LBT-RU LBT-IPC LBT-SMX ) WC[PCRE 7.4 2007-09-21, regex, appcb] HRT[gettimeofday()]
+[2022-10-22 12:18:56.699747] [information] Gwd-10761-01: (C) Copyright 2004,2022 Informatica LLC
+    This software and documentation are provided only under a separate license agreement containing restrictions on use and disclosure.
+    This software is protected by patents as detailed at https://www.informatica.com/legal/patents.html.
+    A current list of Informatica trademarks is available on the web at https://www.informatica.com/trademarks.html.
+
+[2022-10-22 12:18:56.701213] [warning] Core-9941-2212: specified smart source retention buffer count of 101000 will be increased to the next highest power of two: 131072
+
+[2022-10-22 12:18:56.704070] [information] Core-10403-150: Context (0x33ab660) created with ContextID (1572336232) and ContextName [29west_statistics_context]
+
+[2022-10-22 12:18:56.704437] [warning] Core-9941-2212: specified smart source retention buffer count of 101000 will be increased to the next highest power of two: 131072
+
+[2022-10-22 12:18:56.710854] [information] Core-10403-151: Reactor Only Context (0x3bd2bf0) created with ContextID (2010954288) and ContextName [(NULL)]
+
+[2022-10-22 12:18:56.711083] [information] Core-10403-151: Reactor Only Context (0x3bebbf0) created with ContextID (846209105) and ContextName [(NULL)]
+
+[2022-10-22 12:18:56.713898] [information] Core-10403-150: Context (0x3c05550) created with ContextID (199802605) and ContextName [TRD1]
+
+[2022-10-22 12:18:56.713898] [warning] THROTTLED MSG: Core-5688-3373: No active resolver instances, sending via inactive instance
+[2022-10-22 12:18:56.813898] [information] Gwd-6033-618: peer portal [PEER1] failed to connect to peer at [10.55.35.120:10190] via [10.237.176.219]
+[2022-10-22 12:18:56.913898] [information] Gwd-6033-618: peer portal [PEER2] failed to connect to peer at [10.55.35.118:10190] via [10.237.176.219]
+[2022-10-22 12:18:56.993898] [warning] ...previous THROTTLED MSG repeated 25 times in 1 seconds

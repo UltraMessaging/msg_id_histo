@@ -78,7 +78,7 @@ In this example:
 ````
 The tool counts the first instance of Core-5688-3373,
 and then adds 25 to it when it sees the "repeated 25 times" log.
-(It has to remember what the previous **throttled** message was.)
+(It has to remember what the previous *throttled* message was.)
 
 You can prevent the tool from adding in the "repeated X time" by passing the "-t" option:
 ````
@@ -93,6 +93,24 @@ $ msg_id_histo.pl -t test_dro.log
 1 - Gwd-7136-1: Ultra Messaging Gateway version 6.15
 1 - Gwd-7136-2: UMP 6.15 [UMP-6.15] [64-bit] Build: Oct 22 2022, 01:54:29 ( DEBUG license LBT-RM LBT-RU LBT-IPC LBT-SMX ) WC[PCRE 7.4 2007-09-21, regex, appcb] HRT[gettimeofday()]
 ````
+
+The output is sorted by the message ID.
+I often find it useful to re-sort it by the count:
+````
+$ msg_id_histo.pl test_dro.log
+1 - Core-7911-1: Onload extensions API has been dynamically loaded
+1 - Gwd-10761-01: (C) Copyright 2004,2022 Informatica LLC
+1 - Gwd-7136-1: Ultra Messaging Gateway version 6.15
+1 - Gwd-7136-2: UMP 6.15 [UMP-6.15] [64-bit] Build: Oct 22 2022, 01:54:29 ( DEBUG license LBT-RM LBT-RU LBT-IPC LBT-SMX ) WC[PCRE 7.4 2007-09-21, regex, appcb] HRT[gettimeofday()]
+2 - Core-10403-150: Context (0x33ab660) created with ContextID (1572336232) and ContextName [29west_statistics_context]
+2 - Core-10403-151: Reactor Only Context (0x3bd2bf0) created with ContextID (2010954288) and ContextName [(NULL)]
+2 - Core-9941-2212: specified smart source retention buffer count of 101000 will be increased to the next highest power of two: 131072
+2 - Gwd-6033-618: peer portal [PEER1] failed to connect to peer at [10.55.35.120:10190] via [10.237.176.219]
+26 - Core-5688-3373: No active resolver instances, sending via inactive instance
+````
+Note the "-n".
+The most-often logged messages are at the bottom.
+
 
 # COPYRIGHT AND LICENSE
 

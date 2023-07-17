@@ -9,6 +9,10 @@ Count message IDs from Store and DRO log files
 &DoubleRightArrow; [Introduction](#introduction)  
 &nbsp;&nbsp;&DoubleRightArrow; [Repository](#repository)  
 &DoubleRightArrow; [Quick Start](#quick-start)  
+&nbsp;&nbsp;&DoubleRightArrow; [Store](#store)  
+&nbsp;&nbsp;&DoubleRightArrow; [DRO](#dro)  
+&nbsp;&nbsp;&nbsp;&nbsp;&DoubleRightArrow; [Repeat Count](#repeat-count)  
+&nbsp;&nbsp;&DoubleRightArrow; [Sort the Output](#sort-the-output)  
 &DoubleRightArrow; [COPYRIGHT AND LICENSE](#copyright-and-license)  
 <!-- TOC created by '../mdtoc/mdtoc.pl README.md' (see https://github.com/fordsfords/mdtoc) -->
 <!-- mdtoc-end -->
@@ -34,6 +38,8 @@ Download the msg_id_histo repository and copy "msg_id_histo.pl" into your PATH.
 It is a good idea for you to examine the code to ensure there isn't anything
 dangerous in it (it's short and simple enough that it shouldn't take too long).
 
+## Store
+
 Enter:
 ````
 $ msg_id_histo.pl test_store.log
@@ -52,7 +58,9 @@ $ msg_id_histo.pl test_store.log
 1 - Store-9689-2: LBM XML configuration file [um.xml] specified, but no application-name provided. Setting application name to "umestored"
 ````
 
-Also:
+## DRO
+
+Enter:
 ````
 $ msg_id_histo.pl test_dro.log
 2 - Core-10403-150: Context (0x33ab660) created with ContextID (1572336232) and ContextName [29west_statistics_context]
@@ -65,6 +73,9 @@ $ msg_id_histo.pl test_dro.log
 1 - Gwd-7136-1: Ultra Messaging Gateway version 6.15
 1 - Gwd-7136-2: UMP 6.15 [UMP-6.15] [64-bit] Build: Oct 22 2022, 01:54:29 ( DEBUG license LBT-RM LBT-RU LBT-IPC LBT-SMX ) WC[PCRE 7.4 2007-09-21, regex, appcb] HRT[gettimeofday()]
 ````
+
+### Repeat Count
+
 If you examine the "test_dro.log" you will find that it does NOT contain 26
 instances of Core-5688-3373.
 However, note that it is "throttled" log, meaning that UM suppresses logs that
@@ -93,6 +104,8 @@ $ msg_id_histo.pl -t test_dro.log
 1 - Gwd-7136-1: Ultra Messaging Gateway version 6.15
 1 - Gwd-7136-2: UMP 6.15 [UMP-6.15] [64-bit] Build: Oct 22 2022, 01:54:29 ( DEBUG license LBT-RM LBT-RU LBT-IPC LBT-SMX ) WC[PCRE 7.4 2007-09-21, regex, appcb] HRT[gettimeofday()]
 ````
+
+## Sort the Output
 
 The output is sorted by the message ID.
 I often find it useful to re-sort it by the count:

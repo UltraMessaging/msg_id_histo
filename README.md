@@ -19,7 +19,7 @@ This simple tool (written in perl) scans a UM Store or DRO log file
 and counts the number of ocurrences of the different types of logs,
 keyed by the message ID (e.g. "Core-0001-1:").
 
-The tool is simply,
+The tool is simple,
 but I have used it enough times that I think it deserves its own repo.
 If you know your way around perl regular expression matching,
 it can be pretty easily modified to scan application log files.

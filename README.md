@@ -69,14 +69,16 @@ If you examine the "test_dro.log" you will find that it does NOT contain 26
 instances of Core-5688-3373.
 However, note that it is "throttled" log, meaning that UM suppresses logs that
 come out in rapid succession.
-Thus, the sequence:
+In this example:
 ````
 [2022-10-22 12:18:56.713898] [warning] THROTTLED MSG: Core-5688-3373: No active resolver instances, sending via inactive instance
 [2022-10-22 12:18:56.813898] [information] Gwd-6033-618: peer portal [PEER1] failed to connect to peer at [10.55.35.120:10190] via [10.237.176.219]
 [2022-10-22 12:18:56.913898] [information] Gwd-6033-618: peer portal [PEER2] failed to connect to peer at [10.55.35.118:10190] via [10.237.176.219]
 [2022-10-22 12:18:56.993898] [warning] ...previous THROTTLED MSG repeated 25 times in 1 seconds
 ````
-counts the first instance of Core-5688-3373, and then adds 25 to it when it sees the "repeated 25 times" log.
+The tool counts the first instance of Core-5688-3373,
+and then adds 25 to it when it sees the "repeated 25 times" log.
+(It has to remember what the previous **throttled** message was.)
 
 You can prevent the tool from adding in the "repeated X time" by passing the "-t" option:
 ````

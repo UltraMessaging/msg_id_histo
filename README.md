@@ -11,7 +11,7 @@ Count message IDs from Store and DRO log files
 &DoubleRightArrow; [Quick Start](#quick-start)  
 &nbsp;&nbsp;&DoubleRightArrow; [Store](#store)  
 &nbsp;&nbsp;&DoubleRightArrow; [DRO](#dro)  
-&nbsp;&nbsp;&nbsp;&nbsp;&DoubleRightArrow; [Repeat Count](#repeat-count)  
+&nbsp;&nbsp;&DoubleRightArrow; [Repeat Count](#repeat-count)  
 &nbsp;&nbsp;&DoubleRightArrow; [Sort the Output](#sort-the-output)  
 &DoubleRightArrow; [COPYRIGHT AND LICENSE](#copyright-and-license)  
 <!-- TOC created by '../mdtoc/mdtoc.pl README.md' (see https://github.com/fordsfords/mdtoc) -->
@@ -74,13 +74,14 @@ $ msg_id_histo.pl test_dro.log
 1 - Gwd-7136-2: UMP 6.15 [UMP-6.15] [64-bit] Build: Oct 22 2022, 01:54:29 ( DEBUG license LBT-RM LBT-RU LBT-IPC LBT-SMX ) WC[PCRE 7.4 2007-09-21, regex, appcb] HRT[gettimeofday()]
 ````
 
-### Repeat Count
+## Repeat Count
 
 If you examine the "test_dro.log" you will find that it does NOT contain 26
 instances of Core-5688-3373.
 However, note that it is "throttled" log, meaning that UM suppresses logs that
 come out in rapid succession.
-In this example:
+
+In the DRO example log:
 ````
 [2022-10-22 12:18:56.713898] [warning] THROTTLED MSG: Core-5688-3373: No active resolver instances, sending via inactive instance
 [2022-10-22 12:18:56.813898] [information] Gwd-6033-618: peer portal [PEER1] failed to connect to peer at [10.55.35.120:10190] via [10.237.176.219]

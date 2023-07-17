@@ -9,6 +9,7 @@ tmp.*
 .DS_Store
 lbm.sh
 *.out
+*.bak
 
 # Prerequisites
 *.d

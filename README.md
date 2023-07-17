@@ -4,6 +4,13 @@ Count message IDs from Store and DRO log files
 
 # Table of contents
 <!-- mdtoc-start -->
+&DoubleRightArrow; [msg_id_histo](#msgidhisto)  
+&DoubleRightArrow; [Table of contents](#table-of-contents)  
+&DoubleRightArrow; [Introduction](#introduction)  
+&nbsp;&nbsp;&DoubleRightArrow; [Repository](#repository)  
+&DoubleRightArrow; [Quick Start](#quick-start)  
+&DoubleRightArrow; [COPYRIGHT AND LICENSE](#copyright-and-license)  
+<!-- TOC created by '../mdtoc/mdtoc.pl README.md' (see https://github.com/fordsfords/mdtoc) -->
 <!-- mdtoc-end -->
 
 # Introduction

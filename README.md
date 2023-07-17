@@ -97,7 +97,7 @@ $ msg_id_histo.pl -t test_dro.log
 The output is sorted by the message ID.
 I often find it useful to re-sort it by the count:
 ````
-$ msg_id_histo.pl test_dro.log
+$ msg_id_histo.pl test_dro.log | sort -n
 1 - Core-7911-1: Onload extensions API has been dynamically loaded
 1 - Gwd-10761-01: (C) Copyright 2004,2022 Informatica LLC
 1 - Gwd-7136-1: Ultra Messaging Gateway version 6.15

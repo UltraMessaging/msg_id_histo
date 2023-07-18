@@ -11,6 +11,8 @@
 
 [2022-10-22 12:18:56.704070] [information] Core-10403-150: Context (0x33ab660) created with ContextID (1572336232) and ContextName [29west_statistics_context]
 
+[2023-06-22 18:07:22.941700] [emergency] FATAL: failed assertion [portal->peer.rcv_msg_state!=NULL] at line 3004 in ../../../../src/gateway/tnwgpeer.c
+
 [2022-10-22 12:18:56.704437] [warning] Core-9941-2212: specified smart source retention buffer count of 101000 will be increased to the next highest power of two: 131072
 
 [2022-10-22 12:18:56.710854] [information] Core-10403-151: Reactor Only Context (0x3bd2bf0) created with ContextID (2010954288) and ContextName [(NULL)]

@@ -63,6 +63,7 @@ $ msg_id_histo.pl test_store.log
 Enter:
 ````
 $ msg_id_histo.pl test_dro.log
+[2023-06-22 18:07:22.941700] [emergency] FATAL: failed assertion [portal->peer.rcv_msg_state!=NULL] at line 3004 in ../../../../src/gateway/tnwgpeer.c
 2 - Core-10403-150: Context (0x33ab660) created with ContextID (1572336232) and ContextName [29west_statistics_context]
 2 - Core-10403-151: Reactor Only Context (0x3bd2bf0) created with ContextID (2010954288) and ContextName [(NULL)]
 26 - Core-5688-3373: No active resolver instances, sending via inactive instance
@@ -73,6 +74,11 @@ $ msg_id_histo.pl test_dro.log
 1 - Gwd-7136-1: Ultra Messaging Gateway version 6.15
 1 - Gwd-7136-2: UMP 6.15 [UMP-6.15] [64-bit] Build: Oct 22 2022, 01:54:29 ( DEBUG license LBT-RM LBT-RU LBT-IPC LBT-SMX ) WC[PCRE 7.4 2007-09-21, regex, appcb] HRT[gettimeofday()]
 ````
+
+Notice the line "[2023-06-22 18:07:22.941700] [emergency] FATAL: failed assertion..."
+The tool is not able to find a message ID in that line, so it prints it before
+printing message counts.
+
 
 ## Repeat Count
 
@@ -95,6 +101,7 @@ and then adds 25 to it when it sees the "repeated 25 times" log.
 You can prevent the tool from adding in the "repeated X time" by passing the "-t" option:
 ````
 $ msg_id_histo.pl -t test_dro.log
+[2023-06-22 18:07:22.941700] [emergency] FATAL: failed assertion [portal->peer.rcv_msg_state!=NULL] at line 3004 in ../../../../src/gateway/tnwgpeer.c
 2 - Core-10403-150: Context (0x33ab660) created with ContextID (1572336232) and ContextName [29west_statistics_context]
 2 - Core-10403-151: Reactor Only Context (0x3bd2bf0) created with ContextID (2010954288) and ContextName [(NULL)]
 1 - Core-5688-3373: No active resolver instances, sending via inactive instance
@@ -112,6 +119,7 @@ The output is sorted by the message ID.
 I often find it useful to re-sort it by the count:
 ````
 $ msg_id_histo.pl test_dro.log | sort -n
+[2023-06-22 18:07:22.941700] [emergency] FATAL: failed assertion [portal->peer.rcv_msg_state!=NULL] at line 3004 in ../../../../src/gateway/tnwgpeer.c
 1 - Core-7911-1: Onload extensions API has been dynamically loaded
 1 - Gwd-10761-01: (C) Copyright 2004,2022 Informatica LLC
 1 - Gwd-7136-1: Ultra Messaging Gateway version 6.15

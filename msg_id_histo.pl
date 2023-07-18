@@ -59,7 +59,7 @@ while (<>) {
     next;
   }
   my $throttled = s/ THROTTLED MSG: / /;
-  if (/\]:*\s+([A-za-z]+-\d+-\d+:)\s+(.*)$/) {
+  if (/\]:*\s+([A-Za-z]+-\d+-\d+:)\s+(.*)$/) {
     my $msg_id = $1;
     if (!defined($msg_id_hist{$msg_id})) { $msg_id_hist{$msg_id} = 0; $msg_text_hist{$msg_id} = $2; }
     $msg_id_hist{$msg_id} ++;

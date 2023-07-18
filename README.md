@@ -23,6 +23,12 @@ This simple tool (written in perl) scans a UM Store or DRO log file
 and counts the number of ocurrences of the different types of logs,
 keyed by the message ID (e.g. "Core-0001-1:").
 
+It will also print the text of the message - the first instance it finds.
+For example, if a DRO log file contains a series of Core-6259-2: route
+discovery messages with different IP addresses,
+they will all be counted towards the Core-6259-2: total,
+and the displayed text will be from the first instance found.
+
 The tool is simple,
 but I have used it enough times that I think it deserves its own repo.
 If you know your way around perl regular expression matching,

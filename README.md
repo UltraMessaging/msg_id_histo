@@ -13,6 +13,7 @@ Count message IDs from Store and DRO log files
 &nbsp;&nbsp;&DoubleRightArrow; [DRO](#dro)  
 &nbsp;&nbsp;&DoubleRightArrow; [Repeat Count](#repeat-count)  
 &nbsp;&nbsp;&DoubleRightArrow; [Sort the Output](#sort-the-output)  
+&nbsp;&nbsp;&DoubleRightArrow; [DRO Gwd-6033-618:](#dro-gwd-6033-618)  
 &DoubleRightArrow; [COPYRIGHT AND LICENSE](#copyright-and-license)  
 <!-- TOC created by '../mdtoc/mdtoc.pl README.md' (see https://github.com/fordsfords/mdtoc) -->
 <!-- mdtoc-end -->
@@ -138,6 +139,31 @@ $ msg_id_histo.pl test_dro.log | sort -n
 ````
 Note the "-n".
 The most-often logged messages are at the bottom.
+
+## DRO Gwd-6033-618:
+
+The DRO message ID "Gwd-6033-618:" deviates from the normal UM model of
+having the message ID represent a given message type.
+Instead, "Gwd-6033-618:" represents a wide range of messages.
+So it is treated differently in the tool, including the constant
+parts of the messages as part of the message ID.
+Therefore, you can get multiple message counts for differnt "Gwd-6033-618:"
+messages.
+The variable parts of the message texts are replaced with "x".
+
+For example:
+````
+$ msg_id_histo.pl 618.log
+140 - Gwd-6033-618: peer portal x connected to x
+925 - Gwd-6033-618: peer portal x detected dropped inbound connection x
+307 - Gwd-6033-618: peer portal x failed to connect to peer at x via x
+30 - Gwd-6033-618: peer portal x failed to create peer accept socket x: CoreApi-5688-3231: TCP server bind x: x Address already in use
+925 - Gwd-6033-618: peer portal x inbound connection destroyed due to disconnect
+119 - Gwd-6033-618: peer portal x inbound connection destroyed due to shutdown
+121 - Gwd-6033-618: peer portal x lost connection to peer at x via x
+119 - Gwd-6033-618: peer portal x outbound connection destroyed due to shutdown
+110 - Gwd-6033-618: peer portal x received connection from x
+````
 
 
 # COPYRIGHT AND LICENSE

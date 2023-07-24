@@ -49,6 +49,19 @@ while (<>) {
 
   if (/^\s*$/) { next; }
   if (/^\s+/) { next; }  # Ignore lines that start with whitespace.
+
+  # The Gwd-6033-618: message is unfortunate in that it combines many different messages.
+  # Differentiate them by the constant parts of the message text.
+  if (/Gwd-6033-618: (.*)$/) {
+    my $m = $1;
+    while ($m =~ s/\[[^\]]*\]/x/) { }  # Eliminate all "[...]"
+    while ($m =~ s/\([^\)]*\)/x/) { }  # Eliminate all "(...)"
+    my $msg_id = "Gwd-6033-618: $m";    # Expand message ID to include constant text.
+    if (!defined($msg_id_hist{$msg_id})) { $msg_id_hist{$msg_id} = 0; $msg_text_hist{$msg_id} = ""; }
+    $msg_id_hist{$msg_id} ++;
+    next;
+  }
+
   if (/previous THROTTLED MSG repeated (\d+) times/) {
     if (!$opt_t) {
       if ($prev_throttled_msg_id ne "") {
@@ -59,6 +72,7 @@ while (<>) {
     next;
   }
   my $throttled = s/ THROTTLED MSG: / /;
+
   if (/\]:*\s+([A-Za-z]+-\d+-\d+:)\s+(.*)$/) {
     my $msg_id = $1;
     if (!defined($msg_id_hist{$msg_id})) { $msg_id_hist{$msg_id} = 0; $msg_text_hist{$msg_id} = $2; }

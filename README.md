@@ -179,9 +179,9 @@ It is not unusual to use 'dro_log.sh' in conjunction with 'msg_id_histo.pl':
 $ dro_log.sh dro.log >dro_errs.log
 $ wc dro_errs.log
   59917  974777 9408112 dro_errs.log
-```
+````
 Almost 60k lines of errors. Hard to digest. Let's get a historgram
-```
+````
 $ msg_id_histo.pl dro_errs.log >dro_histo.log
 $ wc dro_histo.log
   33  445 3318 dro_histo.log

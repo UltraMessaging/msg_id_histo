@@ -4,7 +4,7 @@ Count message IDs from Store and DRO log files
 
 # Table of contents
 <!-- mdtoc-start -->
-&DoubleRightArrow; [msg_id_histo](#msgidhisto)  
+&DoubleRightArrow; [msg_id_histo](#msg_id_histo)  
 &DoubleRightArrow; [Table of contents](#table-of-contents)  
 &DoubleRightArrow; [Introduction](#introduction)  
 &nbsp;&nbsp;&DoubleRightArrow; [Repository](#repository)  
@@ -14,7 +14,7 @@ Count message IDs from Store and DRO log files
 &nbsp;&nbsp;&DoubleRightArrow; [Repeat Count](#repeat-count)  
 &nbsp;&nbsp;&DoubleRightArrow; [Sort the Output](#sort-the-output)  
 &nbsp;&nbsp;&DoubleRightArrow; [DRO Gwd-6033-618:](#dro-gwd-6033-618)  
-&nbsp;&nbsp;&DoubleRightArrow; [dro_log.sh](#drologsh)  
+&nbsp;&nbsp;&DoubleRightArrow; [dro_log.sh](#dro_logsh)  
 &DoubleRightArrow; [COPYRIGHT AND LICENSE](#copyright-and-license)  
 <!-- TOC created by '../mdtoc/mdtoc.pl README.md' (see https://github.com/fordsfords/mdtoc) -->
 <!-- mdtoc-end -->

@@ -14,6 +14,7 @@ Count message IDs from Store and DRO log files
 &nbsp;&nbsp;&DoubleRightArrow; [Repeat Count](#repeat-count)  
 &nbsp;&nbsp;&DoubleRightArrow; [Sort the Output](#sort-the-output)  
 &nbsp;&nbsp;&DoubleRightArrow; [DRO Gwd-6033-618:](#dro-gwd-6033-618)  
+&nbsp;&nbsp;&DoubleRightArrow; [dro_log.sh](#drologsh)  
 &DoubleRightArrow; [COPYRIGHT AND LICENSE](#copyright-and-license)  
 <!-- TOC created by '../mdtoc/mdtoc.pl README.md' (see https://github.com/fordsfords/mdtoc) -->
 <!-- mdtoc-end -->
@@ -163,6 +164,63 @@ $ msg_id_histo.pl 618.log
 121 - Gwd-6033-618: peer portal x lost connection to peer at x via x
 119 - Gwd-6033-618: peer portal x outbound connection destroyed due to shutdown
 110 - Gwd-6033-618: peer portal x received connection from x
+````
+
+## dro_log.sh
+
+The "dro_log.sh" script contains a simple 'sed' stript that removes "normal"
+logs from a DRO log file.
+I.e. if "dro_log.sh" scans a DRO log file and generates no output,
+you can feel pretty confident that the DRO ran without incident.
+Any output lines deserve to be investigated.
+
+It is not unusual to use 'dro_log.sh' in conjunction with 'msg_id_histo.pl':
+````
+$ dro_log.sh dro.log >dro_errs.log
+$ wc dro_errs.log
+  59917  974777 9408112 dro_errs.log
+```
+Almost 60k lines of errors. Hard to digest. Let's get a historgram
+```
+$ msg_id_histo.pl dro_errs.log >dro_histo.log
+$ wc dro_histo.log
+  33  445 3318 dro_histo.log
+````
+33 lines of histogram. Much easier to examine.
+````
+$ cat dro_histo.log
+241 - Core-5688-1890: handle events returned error 5 [CoreApi-5688-3313: TCP server accept: (130) Software caused connection abort]
+3 - Core-5688-27: WARNING: receiver config variable retransmit_request_generation_interval is deprecated. Use retransmit_request_message_timeout instead.
+127 - Core-5688-3336: lbm_socket_sendb: msg dropped (EWOULDBLOCK): adjust rate limit or buffers
+11257 - Core-5688-3373: No active resolver instances, sending via inactive instance
+373 - Core-5688-3375: unicast resolver 10.237.176.219:15380 went inactive
+373 - Core-5688-3376: received data from inactive unicast resolver 10.237.176.219:15380, marking as active
+4897 - Core-5688-3929: No more messages in TCP buffer before old message is complete.
+339 - Core-5688-3930: New unfragged message in TCP buffer before old fragged message is complete.
+9 - Core-5688-3931: New message in TCP buffer before old message is complete.
+11 - Core-5688-445: LBMC datagram malformed, msglen 0. Dropping. Origin: 10.55.35.118:10190
+7 - Core-5688-450: LBMC version incorrect (9). Dropping. Origin: 10.55.35.118:10190.
+2 - Core-5688-451: LBMC type not supported (12). Dropping. Origin: 10.55.35.118:10190.
+1 - Core-5688-452: LBMC basic header too short, dropping message. Origin: 10.55.35.118:10190
+1 - Core-5688-468: LBMC unknown next header ff, dropping message. Origin: 10.55.35.118:10190
+11 - Core-5894-2: lbm_timer_expire: Exceeded 500 timer expirations in one iteration
+3 - Core-6259-1: Re-routing Domain ID 2: old: 10.237.176.57:14702 new: 10.237.176.57:14725
+241 - Gwd-6033-368: endpoint portal [PROXY1-TCP] receive context lbm_context_process_events() failed [5]: CoreApi-5688-3313: TCP server accept: (130) Software caused connection abort
+3 - Gwd-6033-387: error starting portal [PROXY1-CHANNEL2] [5]: CoreApi-5688-3231: TCP server bind (port=10190): (125) Address already in use
+3 - Gwd-6033-492: peer portal [PROXY1-CHANNEL2] unable to start peer connection [5]: CoreApi-5688-3231: TCP server bind (port=10190): (125) Address already in use
+3 - Gwd-6033-539: peer portal [PROXY1-CHANNEL2] received one or more UIM data messages with no stream information - these will be dropped
+3 - Gwd-6033-618: peer portal x detected dropped inbound connection x
+52213 - Gwd-6033-618: peer portal x failed to connect to peer at x via x
+3 - Gwd-6033-618: peer portal x failed to create peer accept socket x: CoreApi-5688-3231: TCP server bind x: x Address already in use
+3 - Gwd-6033-618: peer portal x inbound connection destroyed due to disconnect
+4 - Gwd-6033-618: peer portal x inbound connection destroyed due to shutdown
+30 - Gwd-6033-618: peer portal x lost connection to peer at x via x
+4 - Gwd-6033-618: peer portal x outbound connection destroyed due to shutdown
+4 - Gwd-6033-621: peer portal [PROXY1-CHANNEL2] detected no activity from companion in 15000ms, shutting down connection
+24 - Gwd-6361-123: portal [PROXY1-LBTRM] could not find path to domain 2. Dropping UIM packet.
+37 - Gwd-6361-75: route recalculation backoff has exceeded the specified threshold
+6 - Gwd-6945-1: Portal [PROXY1-LBTRM] began enqueueing data
+6 - Gwd-6945-3: Portal [PROXY1-LBTRM] completed flushing queue
 ````
 
 

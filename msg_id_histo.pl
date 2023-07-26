@@ -1,26 +1,16 @@
 #!/usr/bin/env perl
-# skeleton.pl - https://github.com/UltraMessaging/msg_id_histo
+# msg_id_histo.pl - tool to count log messages of each type and
+#   print the totals.
+#   See https://github.com/UltraMessaging/msg_id_histo for full doc.
 #
-# All of the documentation and software included in this and any
-# other Informatica Ultra Messaging GitHub repository
-# Copyright (C) Informatica. All rights reserved.
-#
-# Permission is granted to licensees to use
-# or alter this software for any purpose, including commercial applications,
-# according to the terms laid out in the Software License Agreement.
-#
-# This source code example is provided by Informatica for educational
-# and evaluation purposes only.
-#
-# THE SOFTWARE IS PROVIDED "AS IS" AND INFORMATICA DISCLAIMS ALL WARRANTIES
-# EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY IMPLIED WARRANTIES OF
-# NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR
-# PURPOSE.  INFORMATICA DOES NOT WARRANT THAT USE OF THE SOFTWARE WILL BE
-# UNINTERRUPTED OR ERROR-FREE.  INFORMATICA SHALL NOT, UNDER ANY CIRCUMSTANCES,
-# BE LIABLE TO LICENSEE FOR LOST PROFITS, CONSEQUENTIAL, INCIDENTAL, SPECIAL OR
-# INDIRECT DAMAGES ARISING OUT OF OR RELATED TO THIS AGREEMENT OR THE
-# TRANSACTIONS CONTEMPLATED HEREUNDER, EVEN IF INFORMATICA HAS BEEN APPRISED OF
-# THE LIKELIHOOD OF SUCH DAMAGES.
+# This code and its documentation is Copyright 2011-2021 Informatica
+# and licensed "public domain" style under Creative Commons "CC0":
+#   http://creativecommons.org/publicdomain/zero/1.0/
+# To the extent possible under law, the contributors to this project have
+# waived all copyright and related or neighboring rights to this work.
+# In other words, you can use this code for any purpose without any
+# restrictions.  This work is published from: United States.  The project home
+# is https://github.com/UltraMessaging/msg_id_histo
 
 use strict;
 use warnings;

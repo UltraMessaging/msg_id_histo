@@ -341,8 +341,8 @@ This is accomplished by the "-s" sort option.
 # reroute_runs.pl
 
 This is a special-purpose tool for a customer issue where the UM version 6.5
-DRO (which had several bugs init) sometimes led to network instability.
-The instability was detected by re-route messages appearing repeatedly
+DRO (which had several bugs, since fixed) sometimes led to network instability.
+One symtom of this instability is re-route messages appearing repeatedly
 in the Store logs.
 
 But the occasional re-route log is not an indication of instability.

@@ -3,7 +3,7 @@
 #   print the totals.
 #   See https://github.com/UltraMessaging/msg_id_histo for full doc.
 #
-# This code and its documentation is Copyright 2011-2021 Informatica
+# This code and its documentation is Copyright 2023 Informatica
 # and licensed "public domain" style under Creative Commons "CC0":
 #   http://creativecommons.org/publicdomain/zero/1.0/
 # To the extent possible under law, the contributors to this project have

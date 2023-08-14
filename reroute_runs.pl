@@ -59,20 +59,18 @@ while (<>) {
 
   my ($mon, $day, $hour, $min, $sec, $year);
   my $epoch_time;
-  if (/^\w\w\w (\w\w\w) +(\d+) (\d\d):(\d\d):(\d\d) (\d\d\d\d)\b/) {  # Store time format.
+  if (/\b[MTWFS]\w\w (\w\w\w) +(\d+) (\d\d):(\d\d):(\d\d) (\d\d\d\d)\b/) {  # Store time format.
     ($mon, $day, $hour, $min, $sec, $year) = (asc2mon($1), $2, $3, $4, $5, $6);
     # Get seconds past the system's epoch.
     $epoch_time = timegm($sec, $min, $hour, $day, $mon-1, $year);
   }
-  elsif (/^\@(\d+) \w\w\w (\w\w\w) (\d\d) (\d\d):(\d\d):(\d\d) (\d\d\d\d)\b/) {  # Store epoch time format.
+  elsif (/\[(\d\d\d\d)-(\d\d)-(\d\d) (\d\d):(\d\d):(\d\d)\D/) {  # DRO time format
+    ($year, $mon, $day, $hour, $min, $sec) = ($1, $2, $3, $4, $5, $6);
+    next;  # DRO log line; ignore
+  }
+  elsif (/^\@(\d+).*\b[MTWFS]\w\w (\w\w\w) (\d\d) (\d\d):(\d\d):(\d\d) (\d\d\d\d)\b/) {  # Store epoch time format.
     # Get seconds past the system's epoch.
     $epoch_time = $1;
-  }
-  elsif (/^\[(\d\d\d\d)-(\d\d)-(\d\d) (\d\d):(\d\d):(\d\d)\D/) {  # DRO time format (included for reference).
-    ($year, $mon, $day, $hour, $min, $sec) = ($1, $2, $3, $4, $5, $6);
-    # Get seconds past the system's epoch.
-    $epoch_time = timegm($sec, $min, $hour, $day, $mon-1, $year);
-    mycroak("FATAL: this appers to be a DRO log; should be a Store log.")
   }
   else {
     next;  # Line without a timestamp. Ignore.

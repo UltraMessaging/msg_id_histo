@@ -57,7 +57,13 @@ while (<>) {
       if ($prev_throttled_msg_id ne "") {
         $msg_id_hist{$prev_throttled_msg_id} += $1;
       }
-      else { mycroak("ERROR, no previous throttled for $_"); }
+      else {
+        my $unknown = "unknown - found a 'previous THROTTLED MSG' without a prior 'THROTTLED MSG'";
+        if (! defined($msg_id_hist{"$unknown"})) {
+          $msg_id_hist{"$unknown"} = 0;
+        }
+        $msg_id_hist{"$unknown"} += $1;
+      }
     }
     next;
   }

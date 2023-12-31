@@ -22,8 +22,9 @@ use Carp;
 my $tool = basename($0);
 
 # process options.
-use vars qw($opt_h $opt_t);
-getopts('ho:t') || mycroak("getopts failure");
+use vars qw($opt_h $opt_p $opt_t);
+$opt_p = ".";  # default: match anything.
+getopts('hp:t') || mycroak("getopts failure");
 
 if (defined($opt_h)) {
   help();
@@ -32,6 +33,7 @@ if (defined($opt_h)) {
 my %msg_id_hist;
 my %msg_text_hist;
 my $prev_throttled_msg_id = "";
+my $prev_throttled_msg_text = "";
 
 # Main loop; read each line in each file.
 while (<>) {
@@ -43,40 +45,63 @@ while (<>) {
   # The Gwd-6033-618: message is unfortunate in that it combines many different messages.
   # Differentiate them by the constant parts of the message text.
   if (/Gwd-6033-618: (.*)$/) {
-    my $m = $1;
-    while ($m =~ s/\[[^\]]*\]/x/) { }  # Eliminate all "[...]"
-    while ($m =~ s/\([^\)]*\)/x/) { }  # Eliminate all "(...)"
-    my $msg_id = "Gwd-6033-618: $m";    # Expand message ID to include constant text.
-    if (!defined($msg_id_hist{$msg_id})) { $msg_id_hist{$msg_id} = 0; $msg_text_hist{$msg_id} = ""; }
-    $msg_id_hist{$msg_id} ++;
+    if (/$opt_p/) {  # If matches pattern.
+      my $m = $1;
+      while ($m =~ s/\[[^\]]*\]/x/) { }  # Eliminate all "[...]"
+      while ($m =~ s/\([^\)]*\)/x/) { }  # Eliminate all "(...)"
+      my $msg_id = "Gwd-6033-618: $m";    # Expand message ID to include constant text.
+      # Make sure historgram bucket is defined.
+      if (!defined($msg_id_hist{$msg_id})) { $msg_id_hist{$msg_id} = 0; $msg_text_hist{$msg_id} = ""; }
+      $msg_id_hist{$msg_id} ++;
+    }
     next;
   }
 
   if (/previous THROTTLED MSG repeated (\d+) times/) {
+    my $throttle_count = $1;
     if (!$opt_t) {
-      if ($prev_throttled_msg_id ne "") {
-        $msg_id_hist{$prev_throttled_msg_id} += $1;
-      }
-      else {
-        my $unknown = "unknown:";
-        if (! defined($msg_id_hist{"$unknown"})) {
-          $msg_id_hist{"$unknown"} = 0;
-          $msg_text_hist{"$unknown"} = "found a 'previous THROTTLED MSG' without a prior 'THROTTLED MSG'";
+      if (/$opt_p/) {
+        if ($prev_throttled_msg_id ne "") {
+          # Make sure historgram bucket is defined.
+          if (!defined($msg_id_hist{$prev_throttled_msg_id})) {
+            $msg_id_hist{$prev_throttled_msg_id} = 0;
+            $msg_text_hist{$prev_throttled_msg_id} = $prev_throttled_msg_text;
+          }
+          $msg_id_hist{$prev_throttled_msg_id} += $throttle_count;
         }
-        $msg_id_hist{"$unknown"} += $1;
-      }
-    }
+        else {  # Previous throttled message not found.
+          my $unknown = "unknown_0:";
+          # Make sure historgram bucket is defined.
+          if (! defined($msg_id_hist{"$unknown"})) {
+            $msg_id_hist{"$unknown"} = 0;
+            $msg_text_hist{"$unknown"} = "found a 'previous THROTTLED MSG' without a prior 'THROTTLED MSG'";
+          }
+          $msg_id_hist{"$unknown"} += $throttle_count;
+        }
+      }  # if opt_p
+    }  # if opt_t
     next;
   }
-  my $throttled = s/ THROTTLED MSG: / /;
 
+  my $throttled = s/ THROTTLED MSG: / /;
   if (/\]:*\s+([A-Za-z]+-\d+-\d+:)\s+(.*)$/) {
     my $msg_id = $1;
-    if (!defined($msg_id_hist{$msg_id})) { $msg_id_hist{$msg_id} = 0; $msg_text_hist{$msg_id} = $2; }
-    $msg_id_hist{$msg_id} ++;
-    if ($throttled) { $prev_throttled_msg_id = $msg_id; }
+    my $msg_text = $2;
+    if ($throttled) {
+      $prev_throttled_msg_id = $msg_id;
+      $prev_throttled_msg_text = $msg_text;
+    }
+
+    if (/$opt_p/) {
+      if (!defined($msg_id_hist{$msg_id})) { $msg_id_hist{$msg_id} = 0; $msg_text_hist{$msg_id} = $msg_text; }
+      $msg_id_hist{$msg_id} ++;
+    }
   }
-else { print "$_\n"; }
+  else {
+    if (/$opt_p/) {
+      print "$_\n";
+    }
+  }
 } continue {  # This continue clause makes "$." give line number within file.
   close ARGV if eof;
 }
@@ -127,6 +152,7 @@ sub help {
 Usage: $tool [-h] -t [file ...]
 Where:
     -h - help
+    -p pattern - Only count records that match regular pattern.
     -t - don't count omitted throttled logs.
     file ... - zero or more input files.  If omitted, inputs from stdin.
 

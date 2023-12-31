@@ -4,22 +4,22 @@ Count message IDs from Store and DRO log files
 
 # Table of contents
 <!-- mdtoc-start -->
-&DoubleRightArrow; [msg_id_histo](#msg_id_histo)  
-&DoubleRightArrow; [Table of contents](#table-of-contents)  
-&DoubleRightArrow; [Introduction](#introduction)  
-&nbsp;&nbsp;&DoubleRightArrow; [Tool Set](#tool-set)  
-&DoubleRightArrow; [msg_id_histo.pl](#msg_id_histopl)  
-&nbsp;&nbsp;&DoubleRightArrow; [Quick Start](#quick-start)  
-&nbsp;&nbsp;&nbsp;&nbsp;&DoubleRightArrow; [Store](#store)  
-&nbsp;&nbsp;&nbsp;&nbsp;&DoubleRightArrow; [DRO](#dro)  
-&nbsp;&nbsp;&nbsp;&nbsp;&DoubleRightArrow; [Repeat Count](#repeat-count)  
-&nbsp;&nbsp;&nbsp;&nbsp;&DoubleRightArrow; [Sort the Output](#sort-the-output)  
-&nbsp;&nbsp;&nbsp;&nbsp;&DoubleRightArrow; [DRO Gwd-6033-618:](#dro-gwd-6033-618)  
-&DoubleRightArrow; [dro_filter_log.sh](#dro_filter_logsh)  
-&DoubleRightArrow; [epoch_log_times.pl](#epoch_log_timespl)  
-&DoubleRightArrow; [reroute_runs.pl](#reroute_runspl)  
-&DoubleRightArrow; [COPYRIGHT AND LICENSE](#copyright-and-license)  
-<!-- TOC created by '../mdtoc/mdtoc.pl README.md' (see https://github.com/fordsfords/mdtoc) -->
+&bull; [msg_id_histo](#msg_id_histo)  
+&bull; [Table of contents](#table-of-contents)  
+&bull; [Introduction](#introduction)  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Tool Set](#tool-set)  
+&bull; [msg_id_histo.pl](#msg_id_histopl)  
+&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Quick Start](#quick-start)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Store](#store)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [DRO](#dro)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Repeat Count](#repeat-count)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Sort the Output](#sort-the-output)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [DRO Gwd-6033-618:](#dro-gwd-6033-618)  
+&bull; [dro_filter_log.sh](#dro_filter_logsh)  
+&bull; [epoch_log_times.pl](#epoch_log_timespl)  
+&bull; [reroute_runs.pl](#reroute_runspl)  
+&bull; [COPYRIGHT AND LICENSE](#copyright-and-license)  
+<!-- TOC created by '/home/sford/bin/mdtoc.pl README.md' (see https://github.com/fordsfords/mdtoc) -->
 <!-- mdtoc-end -->
 
 # Introduction

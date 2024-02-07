@@ -15,7 +15,7 @@ lbm.sh
 *.d
 
 # Object files
-um_tgen
+msg_id_histo.txt
 *.o
 *.ko
 *.obj

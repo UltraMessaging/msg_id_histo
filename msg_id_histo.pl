@@ -19,7 +19,8 @@ use File::Basename;
 use Carp;
 
 # globals
-my $tool = basename($0);
+my $tool = "msg_id_histo.pl";
+my $vers = "1.8";
 
 # process options.
 use vars qw($opt_h $opt_p $opt_t);
@@ -149,6 +150,7 @@ sub help {
     print "$tool: $err_str\n\n";
   }
   print <<__EOF__;
+$tool version $vers
 Usage: $tool [-h] -t [file ...]
 Where:
     -h - help

@@ -45,10 +45,10 @@ while (<>) {
   # The Gwd-6033-618: message is unfortunate in that it combines many different messages.
   # Differentiate them by the constant parts of the message text.
   if (/Gwd-6033-618: (.*)$/) {
+    my $m = $1;
     if (/$opt_p/) {  # If matches pattern.
-      my $m = $1;
-      while ($m =~ s/\[[^\]]*\]/x/) { }  # Eliminate all "[...]"
-      while ($m =~ s/\([^\)]*\)/x/) { }  # Eliminate all "(...)"
+      while ($m =~ s/\[[^\]]*\]/x/) { }  # Eliminate varying text in square brackets "[...]"
+      while ($m =~ s/\([^\)]*\)/x/) { }  # Eliminate varying text in parentheses "(...)"
       my $msg_id = "Gwd-6033-618: $m";    # Expand message ID to include constant text.
       # Make sure historgram bucket is defined.
       if (!defined($msg_id_hist{$msg_id})) { $msg_id_hist{$msg_id} = 0; $msg_text_hist{$msg_id} = ""; }

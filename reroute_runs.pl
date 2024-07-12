@@ -2,15 +2,6 @@
 # reroute_runs.pl - tool to scan a Store log and identifying the "runs" of
 #   re-route messages.
 #   See https://github.com/UltraMessaging/msg_id_histo for full doc.
-#
-# This code and its documentation is Copyright 2011-2021 Informatica
-# and licensed "public domain" style under Creative Commons "CC0":
-#   http://creativecommons.org/publicdomain/zero/1.0/
-# To the extent possible under law, the contributors to this project have
-# waived all copyright and related or neighboring rights to this work.
-# In other words, you can use this code for any purpose without any
-# restrictions.  This work is published from: United States.  The project home
-# is https://github.com/UltraMessaging/msg_id_histo
 
 use strict;
 use warnings;

@@ -56,6 +56,10 @@ but I have used it enough times that I think it deserves its own repo.
 If you know your way around perl regular expression matching,
 it can be pretty easily modified to scan application log files.
 
+# msg_id_histo.py
+
+Python port of Perl tool, for those who prefer Python.
+
 ## Quick Start
 
 Download the msg_id_histo repository and copy "msg_id_histo.pl" into your PATH.

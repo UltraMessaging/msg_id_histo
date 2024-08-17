@@ -19,7 +19,7 @@ Count message IDs from Store and DRO log files
 &bull; [epoch_log_times.pl](#epoch_log_timespl)  
 &bull; [reroute_runs.pl](#reroute_runspl)  
 &bull; [COPYRIGHT AND LICENSE](#copyright-and-license)  
-<!-- TOC created by '/home/sford/bin/mdtoc.pl README.md' (see https://github.com/fordsfords/mdtoc) -->
+<!-- TOC created by '../mdtoc/mdtoc.pl README.md' (see https://github.com/fordsfords/mdtoc) -->
 <!-- mdtoc-end -->
 
 # Introduction

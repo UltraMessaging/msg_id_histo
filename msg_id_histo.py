@@ -85,7 +85,9 @@ class Main:
                         # Make sure historgram bucket is defined.
                         if unknown not in self.msg_id_hist:
                             self.msg_id_hist[unknown] = 0
-                            self.msg_text_hist[unknown] = "found a 'previous THROTTLED MSG' without a prior 'THROTTLED MSG'"
+                            self.msg_text_hist[unknown] = (
+                                "found a 'previous THROTTLED MSG' without a prior 'THROTTLED MSG'"
+                            )
                         self.msg_id_hist[unknown] += throttle_count
             return
 

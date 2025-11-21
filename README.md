@@ -17,6 +17,7 @@ Count message IDs from Store and DRO log files
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [Sort the Output](#sort-the-output)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&bull; [DRO Gwd-6033-618:](#dro-gwd-6033-618)  
 &bull; [dro_filter_log.sh](#dro_filter_logsh)  
+&bull; [store_filter_log.sh](#store_filter_logsh)  
 &bull; [epoch_log_times.pl](#epoch_log_timespl)  
 &bull; [reroute_runs.pl](#reroute_runspl)  
 &bull; [COPYRIGHT AND LICENSE](#copyright-and-license)  

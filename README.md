@@ -36,6 +36,7 @@ or even quality as the UM product itself. :-)
 
 * msg_id_histo.pl - Count number of instances of each message type in a Store or DRO log file.
 * dro_filter_log.sh - Filter out "normal" logs from a DRO log file.
+* store_filter_log.sh - Filter out "normal" logs from a Store log file.
 * epoch_log_times.pl - Prepend epoch time to each Store or DRO log file line.
 * reroute_runs.pl - find "runs" of reroute logs in a Store log file.
 
@@ -191,7 +192,10 @@ The "dro_filter_log.sh" script contains a simple 'sed' stript that removes "norm
 logs from a DRO log file.
 I.e. if "dro_filter_log.sh" scans a DRO log file and generates no output,
 you can feel pretty confident that the DRO ran without incident.
-Any output lines deserve to be investigated.
+Any output lines are "unexpected" and deserve to be investigated.
+
+It is not unusual for some unexpected lines to be determined to be normal.
+The dro_filter_log.sh file can be modified to include additional messages.
 
 It is not unusual to use 'dro_filter_log.sh' in conjunction with 'msg_id_histo.pl':
 ````
@@ -241,6 +245,18 @@ $ cat dro_histo.log
 6 - Gwd-6945-1: Portal [PROXY1-LBTRM] began enqueueing data
 6 - Gwd-6945-3: Portal [PROXY1-LBTRM] completed flushing queue
 ````
+
+# store_filter_log.sh
+
+The "store_filter_log.sh" script contains a simple 'sed' stript that removes "normal"
+logs from a Store log file.
+I.e. if "store_filter_log.sh" scans a Store log file and generates no output,
+you can feel pretty confident that the Store ran without incident.
+Any output lines are "unexpected" and deserve to be investigated.
+
+It is not unusual for some unexpected lines to be determined to be normal.
+The store_filter_log.sh file can be modified to include additional messages.
+
 
 # epoch_log_times.pl
 
